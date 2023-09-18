@@ -1,0 +1,16 @@
+.destop-sidebar{
+    width: 250px;
+    height: 100vh;
+    position: sticky;
+    top:0;
+    // svg{
+    //     width: 24px !important;
+    // }
+    a{
+        font-size: 24px !important;
+        span{
+            font-size: 14px !important;
+            margin-left: 12px !important;
+        }
+    }
+}
