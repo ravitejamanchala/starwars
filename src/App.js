@@ -6,8 +6,7 @@ import Main from './views/main/Main';
 function App() {
   return (
     <div className="App">
-   
-       <Main></Main>
+      <Main/>   
     </div>
   );
 }

@@ -71,6 +71,7 @@ body {
     width: 0;
     height: 0;
     overflow: hidden;
+    transition: width 400ms;
   }
 }
 
@@ -257,4 +258,131 @@ body {
   }
 
 
+}
+.mobile-sidebar{
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top:0;
+  left: 0;
+  z-index: 9999;
+  transition: width 400ms;
+  .hamberger{
+    display: block;
+    top:20px;
+    svg{
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+.hamberger{
+  display: none;
+}
+@media only screen and (max-width: 768px) {
+  .hamberger{
+    display: block;
+    position: fixed;
+    top: 30px;
+    left: 24px;
+    z-index: 0;
+       svg{
+        width: 30px;
+        height: 30px;
+       }
+  }
+  body{
+    padding-top: 157px;
+  }
+.sidebar{
+  width: auto !important;
+  transition: width 400ms;
+  z-index: 999;
+  .destop-sidebar {
+    width: 0 !important;
+    height: 100vh;
+    transition: width 400ms;
+    position: fixed !important;
+    top: 0;
+    overflow: hidden;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    z-index: 999;
+    .d-flex.align-items-center.mb-3.link-dark.text-decoration-none.ms-3 {
+      justify-content: center;
+      margin-top: 14px;
+    }
+   }
+   
+   
+}
+.desktop-main{
+  transition: width 400ms;
+  width: 100% !important;
+  .main-content{
+    width: 0% !important;
+  }
+}
+.collapsed .main-content{
+   width: 100% !important;
+}
+
+.activity-panel {
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  background-color: #f5f5f7;
+  transition: width 400ms;
+  position: fixed;
+  top:0;
+  right:0;
+  z-index: 9999;
+}
+
+.custom-card{
+   margin-bottom: 20px !important;
+}
+.header-flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end !important;
+  width: 100%;
+  position: fixed;
+    background: #fff;
+    top: 0;
+    left: 0;
+    padding: 20px 26px;
+    z-index: 1;
+}
+.custom-title {
+  width: 100% !important;
+  order: 1;
+  padding: 20px 0;
+}
+}
+.custom-title {
+  width: calc(100% - 140px);
+}
+.header-flex{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.mobile-sidebar{
+  a{
+      font-size: 24px !important;
+      justify-content: center;
+      span{
+          font-size: 14px !important;
+          margin-left: 12px !important;
+      }
+  }
+  .d-flex.align-items-center.mb-3.link-dark.text-decoration-none.ms-3 {
+    justify-content: center;
+    margin-top: 14px;
+}
+}
+.custom-chat-card{
+  border-radius: 12px !important;
 }

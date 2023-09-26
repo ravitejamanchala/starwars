@@ -13,10 +13,25 @@ export default function Main() {
   //     'activity-panel d-flex mt-3': true,
   //     'collapsed': true
   //   });
+  const [screenSize, getDimension] = React.useState({
+    dynamicWidth: window.innerWidth
+  });
+  const setDimension = () => {
+    getDimension({
+      dynamicWidth: window.innerWidth
+    })
+  }
   const [collapsed, setCollapsed] = React.useState(true);
   function updateCollapse() {
     setCollapsed(!collapsed);
   }
+  React.useEffect(() => {
+    window.addEventListener('resize', setDimension);
+    
+    return(() => {
+        window.removeEventListener('resize', setDimension);
+    })
+  }, [screenSize])
   return (
     <div className=" d-flex">
       <Sidebar></Sidebar>
@@ -28,7 +43,8 @@ export default function Main() {
         <div className="main-content p-4">
           <DesktopHeader onUpdate={updateCollapse} collpased={collapsed}></DesktopHeader>
           <div className="row  gx-3 mt-3">
-            <div className="col-md-6 col-sm-12 col-lg-4 custom-card">
+            <div className="col-md-6 col-sm-12 col-lg-4 ">
+              <div className="custom-card">
               <div className="-white p-3 rounded">
                 <div style={{zIndex:9999,width:"100%"}}>
                   <h3>Running Task</h3>
@@ -57,16 +73,22 @@ export default function Main() {
                 <div className="circle-2"></div>
                 <div className="circle-3"></div>
               </div>
+              </div>
+            
             </div>
             <div className="col-md-6 col-sm-12 col-lg-8">
-              <div className="rounded bg-light p-3">
+              <div className="bg-light custom-chat-card">  
+               <div className="  p-3">
                 <div className="h6">Activity</div>
                 <Chart />
-              </div>
+              </div></div>
+            
             </div>
           </div>
-          <MontlyContributers col={collapsed ? 3 : 2} />
-          <UpcomingTasks col={collapsed ? 3 : 2} />
+          {screenSize.dynamicWidth > 768 ?  <MontlyContributers col={collapsed ? 3 : 2} />:  <MontlyContributers col={1}/>}
+          {screenSize.dynamicWidth > 768 ?   <UpcomingTasks col={collapsed ? 3 : 2} />:   <UpcomingTasks col={1} />}
+        
+         
         </div>
         <div className="activity-panel collapsed">
           <Taskcalender onUpdate={updateCollapse} />
